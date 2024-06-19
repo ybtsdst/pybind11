@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "configure pybind11",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S",
+                ".",
+                "-B",
+                "build",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_INSTALL_PREFIX=/usr/local/lib/pybind11"
+            ],
+            "problemMatcher": [],
+            "detail": "configure pybind11"
+        },
+        {
+            "label": "compile pybind11",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "-j",
+                "4"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+            "detail": "compile pybind11"
+        },
+        {
+            "label": "install pybind11",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "build",
+                "--target",
+                "install"
+            ],
+            "problemMatcher": [],
+            "detail": "install pybind11"
+        }
+    ]
+}
